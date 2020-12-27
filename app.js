@@ -3,7 +3,7 @@ const path = require('path')
 const dotenv = require('dotenv')
 const exphbs = require('express-handlebars')
 const connectDB = require('./config/db')
-const passport = require('./config/passport')
+const passport = require('passport')
 const session = require('express-session')
 const morgan = require('morgan')
 
@@ -44,6 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 //ROUTES
 app.use('/', require('./routes/index'))
+app.use('/auth', require('./routes/auth'))
 
 const PORT = process.env.PORT || 3000
 
